@@ -15,7 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from blog.views import ListarUsuarios, CargarUsuarios, ActualizarUsuarios
+from blog.views import index 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('usuarios/', ListarUsuarios.as_view()),
+    path('usuarios/cargar/', CargarUsuarios.as_view()),
+    path('usuarios/actualizar', ActualizarUsuarios.as_view()),
+    path('usuarios/actualizar/<int:pk>', ActualizarUsuarios.as_view()),
+    path('blog/', index),
 ]
