@@ -7,11 +7,13 @@
     <title>Document</title>
 </head>
 <body>
-    <h1> Carga de Usuarios</h1>
-    <form action="/usuarios/cargar/" method="post">
+
+    <form method="post">
         {% csrf_token %}
-        {{form}}
-        <input type="submit" value="Cargar">
+        "¿ Estás seguro de borrar el familiar {{ object }} ?"
+        <input type="submit" value="SI">
     </form>
+    <a href="{% url 'usuario-list' %}">Volver a Lista de Usuarios</a>
+
 </body>
 </html>

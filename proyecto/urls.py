@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from blog.views import ListarUsuarios, CargarUsuarios, ActualizarUsuarios
+from blog.views import (ListarUsuarios, CargarUsuarios, ActualizarUsuarios, BuscarUsuario, 
+                        UsuarioList, UsuarioCrear, UsuarioBorrar, UsuarioActualizar, ListPost, CreatePost,
+                        DetailPost, UpdatePost, DeletePost, SearchPostByName)
 from blog.views import index 
 
 urlpatterns = [
@@ -24,5 +26,21 @@ urlpatterns = [
     path('usuarios/cargar/', CargarUsuarios.as_view()),
     path('usuarios/actualizar', ActualizarUsuarios.as_view()),
     path('usuarios/actualizar/<int:pk>', ActualizarUsuarios.as_view()),
-    path('blog/', index),
+
+    path('usuarios/buscar', BuscarUsuario.as_view()),
+    path('panel-usuario', UsuarioList.as_view(), name="usuario-list"),
+    path('panel-usuario/crear', UsuarioCrear.as_view(), name="usuario-crear"),
+    path('panel-usuario/<int:pk>/borrar', UsuarioBorrar.as_view(), name="usuario-borrar"),
+    path('panel-usuario/<int:pk>/actualizar', UsuarioActualizar.as_view(), name="usuario-actualizar"),
+
+    path('blog/', index, name="index-blog"),
+    path('panel-post/list/', ListPost.as_view(), name="list-post"),
+    path('panel-post/create/', CreatePost.as_view(), name="create-post"),
+    path('panel-post/detail/<int:pk>/', DetailPost.as_view(), name="detail-post"),
+    path('panel-post/update/<int:pk>/', UpdatePost.as_view(), name="update-post"),
+    path('panel-post/delete/<int:pk>', DeletePost.as_view(), name="delete-post"),
+    path('panel-post/search-by-name/', SearchPostByName.as_view(), name="search-by-name-post"),
+
+
+
 ]

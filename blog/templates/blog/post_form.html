@@ -7,11 +7,14 @@
     <title>Document</title>
 </head>
 <body>
-    <h1> Carga de Usuarios</h1>
-    <form action="/usuarios/cargar/" method="post">
+
+    <form method="post">
         {% csrf_token %}
-        {{form}}
-        <input type="submit" value="Cargar">
+        {{form.as_p}}
+        <input type="submit" value="Publicar">
     </form>
+
+    <a href="{% url 'list-post' %}">Volver a la lista de post</a>
+
 </body>
 </html>

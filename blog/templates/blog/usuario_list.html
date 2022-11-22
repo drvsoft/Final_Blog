@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<ul>
+
+{% block buscar %} {% endblock %}
+
+{% for usuario in object_list %}
+    <li>
+        {{usuario}}
+        <a href="{% url 'usuario-borrar' usuario.id %}">Borrar</a>
+        <a href="{% url 'usuario-actualizar' usuario.id %}">Actualizar</a>
+    </li>
+{% endfor %}    
+</ul>
+
+</body>
+</html>

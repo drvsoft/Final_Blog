@@ -8,4 +8,7 @@ class UsuarioForm(forms.ModelForm):
         model = Usuario
         fields = ('nombre', 'apellido', 'fecha_de_nacimiento')
 
+class Buscar(forms.ModelForm):
+    nombre = forms.CharField(max_length=20)
+
     
