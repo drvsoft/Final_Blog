@@ -1,3 +1,8 @@
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.views import LoginView, LogoutView
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.admin import User
 from django.shortcuts import render, get_object_or_404
 from django.views import View
 from blog.forms import UsuarioForm, Buscar
@@ -67,6 +72,7 @@ class BuscarUsuario(View):
             return render(request, self.template_name, {'form':form, 'lista_usuarios':lista_usuarios})
         return render(request, self.template_name, {"form": form})
 
+@login_required
 def index(request):
     return render(request, 'blog/index.html')
 
@@ -88,12 +94,12 @@ class UsuarioActualizar(UpdateView):
     fields = ["nombre", "apellido", "fecha_de_nacimiento"]
 
 
-class ListPost(ListView):
+class ListPost(LoginRequiredMixin, ListView):
     model=Post
 
 class CreatePost(CreateView):
     model=Post
-    fields = ['title', 'short_content', 'content']
+    fields = ['title', 'short_content', 'content', 'image']
     success_url = reverse_lazy("list-post")
 
 class DetailPost(DetailView):
@@ -101,7 +107,7 @@ class DetailPost(DetailView):
 
 class UpdatePost(UpdateView):
     model=Post
-    fields=['title', 'short_content', 'content']
+    fields=['title', 'short_content', 'content', 'image']
     success_url = reverse_lazy("list-post")
 
 class DeletePost(DeleteView):
@@ -111,5 +117,22 @@ class DeletePost(DeleteView):
 
 class SearchPostByName(ListView):
     def get_queryset(self):
-        blog_title = self.request.GET.get('post-title')
-        return Post.objects.filter(title__icontains=blog_title)
+        post_title = self.request.GET.get('post-title')
+        return Post.objects.filter(title__icontains=post_title)
+
+class BlogLogin(LoginView):
+    template_name = 'blog/blog_login.html'
+    next_page = reverse_lazy("list-post")
+
+class BlogLogout(LogoutView):
+    template_name = 'blog/blog_logout.html'
+
+class BlogSignUp(CreateView):
+    form_class = UserCreationForm
+    success_url = reverse_lazy("blog-login")
+    template_name = "registration/signup.html"
+
+class ProfileUpdate(UpdateView):
+    model = User
+    fields = ['username', 'first_name', 'last_name', 'email']
+    success_url = reverse_lazy("blog-login")

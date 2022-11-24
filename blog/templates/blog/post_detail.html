@@ -8,5 +8,8 @@
 </head>
 <body>
     {{object}}
+    <img height="255" src="{{ object.image.url }}"/>
+    <a href="{% url 'list-post' %}">Volver a la lista de post</a>
+
 </body>
 </html>
