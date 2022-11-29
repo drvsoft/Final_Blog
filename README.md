@@ -4,17 +4,6 @@
 
 Este proyecto se encarga de la administración de artículos y publicaciones en un blog. Considerando los usuarios y los posteos.
 
-### Administración de usuarios
-
-- `Agregado de usuarios`
-Primeramente, se debe crear un usuario y cargar sus datos correspondientemente. Luego presionar submit para que se guarden es necesario completar todos los campos.
-http://127.0.0.1:8000/panel-usuario/crear
-
-- `Visualización de todos los usuarios`
-Teniendo usuarios cargados, es posible realizar una visualización de todos los usuarios. Desde esta pantalla podemos Borrar o Modificar cualquiera de los registros que estamos viendo.
-http://127.0.0.1:8000/panel-usuario/
-
-
 ### Publicación de mensajes
 - `Visualización de los posteos`
 Mediante el próximo link, accedemos a una Listview donde se visualizan todos los posteos realizados. Desde esta lista podemos Borrar o Modificar cualquier posteo y tenemos un link para ir a crear un nuevo posteo.
@@ -29,19 +18,6 @@ Es posible realizar búsqueda alfabética por Título del Post para ello usamor 
 http://127.0.0.1:8000/blog
 
 
-### Operadores del Sistema
-- `Administracion de Operadores del Sistema`
-Mediante el próximo link podemos Registrar a los Operadores del Sistema con su password de acceso; ese password debe cumplir con determinados requisitos para que sea válido.
-http://127.0.0.1:8000/signup
-
-Luego con el link http://127.0.0.1:8000/user-profile/2 podemos administrar más datos con respecto a los operadores del sistema, debemos indicarle el ID del operador que queremos modificar.
-
-### Login y Logout del Sistema
-- `Administracion de los accesos al Sistema`
-Con el próximo link podemos ingresar o loguearnos al Sistema con nuestro usuario y contraseña de operador.
-http://127.0.0.1:8000/Login
-
-Y con el link http://127.0.0.1:8000/Logout nos desconectamos del mismo.
 
 
 #### About Application

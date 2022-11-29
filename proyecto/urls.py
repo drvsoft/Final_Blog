@@ -19,7 +19,7 @@ from django.contrib import admin
 from django.urls import path
 from blog.views import (ListarUsuarios, CargarUsuarios, ActualizarUsuarios, BuscarUsuario, 
                         UsuarioList, UsuarioCrear, UsuarioBorrar, UsuarioActualizar, ListPost, CreatePost,
-                        DetailPost, UpdatePost, DeletePost, SearchPostByName, BlogLogin, BlogLogout, BlogSignUp, ProfileUpdate)
+                        DetailPost, UpdatePost, DeletePost, SearchPostByName, BlogLogin, BlogLogout, BlogSignUp, ProfileUpdate, about)
 from blog.views import index 
 
 urlpatterns = [
@@ -44,6 +44,8 @@ urlpatterns = [
     path('logout/', BlogLogout.as_view(), name="blog-logout"),
     path('signup/', BlogSignUp.as_view(), name="blog-signup"),
     path('user-profile/<int:pk>', ProfileUpdate.as_view(), name="profile-update"),
+    path('about/', about, name="about"),
+
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,16 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <form method="POST">
-        {% csrf_token %}
-        {{form.as_p}}
-        <button type="submit">Login</button>
-    </form>    
-</body>
+  <head>
+    {% load static %}
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+
+    <link rel="stylesheet" href="{% static 'blog/css/estilos.css' %}" />
+    <link rel="stylesheet" href="{% static 'blog/css/styles.css' %}" />
+  </head>
+  <body>
+    <h2 class="a-center mt-50px">Ingresar</h2>
+    <div class="alinear-centro h-100">
+      <form method="POST">
+        {% csrf_token %} {{form.as_p}}
+        <button class="btn btn-primary" type="submit">Login</button>
+      </form>
+    </div>
+  </body>
 </html>

@@ -72,9 +72,13 @@ class BuscarUsuario(View):
             return render(request, self.template_name, {'form':form, 'lista_usuarios':lista_usuarios})
         return render(request, self.template_name, {"form": form})
 
-@login_required
+
+def about(request):
+    return render(request, "blog/about.html")
+
 def index(request):
-    return render(request, 'blog/index.html')
+    post = Post.objects.order_by('date_published').all()
+    return render(request, 'blog/index.html', {"Posteos": post})
 
 class UsuarioList(ListView):
     model = Usuario
@@ -94,8 +98,11 @@ class UsuarioActualizar(UpdateView):
     fields = ["nombre", "apellido", "fecha_de_nacimiento"]
 
 
-class ListPost(LoginRequiredMixin, ListView):
-    model=Post
+class ListPost(ListView):
+    object_list = Post.objects.all()
+    paginate_by = 2
+    model = Post
+    template_name = 'blog/post_list.html'
 
 class CreatePost(CreateView):
     model=Post
@@ -113,7 +120,6 @@ class UpdatePost(UpdateView):
 class DeletePost(DeleteView):
     model=Post
     success_url = reverse_lazy("list-post")
-
 
 class SearchPostByName(ListView):
     def get_queryset(self):
