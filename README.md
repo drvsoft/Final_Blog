@@ -28,6 +28,6 @@ Aplicación educativa curso Python Coderhouse
 ##### Desarrolladores
 
 - Diego Ruben Vaira.
-- Claudio Bottero.
+- Claudio Bottero
 
 
