@@ -13,13 +13,22 @@ Esta opción nos muestra información acerca de los desarrolladores de la aplica
 Con esta nos podemos desconectar y salir de la aplicación.
 - `REGISTRARSE`
 Y con esta última podemos dar de alta usuarios para acceder al sistema.
+# Entrega Proyecto Final Python Coderhouse - Blog
+Este proyecto trata de la administración de artículos y publicaciones en un blog de equipos de futbol. Considerando la administracion de los usuarios y los posteos.
+
 
 ### Publicación de mensajes
 - `Visualización de los posteos`
 En la pantalla principal se visualiza una Lista con los posteos actuales, desde donde podemos eliminarlos, modificarlos o verlos en detalle, mediante una serie de botones específicos. En la misma pantalla encontraremos un botón para crear nuevos posteos y actualizar los datos de los usuarios de la aplicacion (Actualizar Profile).
 
-- `Creación de los posteos`
-En la pantalla de creación de los posteos podemos asignarles un Título, un Comentario Corto, el Detalle del posteo y una Imagen, una vez guardado el sistema le asigna la fecha y hora de publicación. 
+- `Creación de un post`
+Si ueremos agregar un post sin tener que entrar a la Listview anterior podemos utilizar el siguiente link.
+http://127.0.0.1:8000/panel-post/create
+
+- `Búsqueda de un posteo por tìtulo`
+Es posible realizar búsqueda alfabética por Título del Post para ello usamor el siguiente link. Se abrira un pagina que nos exigira loguearnos, luego motrará a la derecha un apartado que dice SEARCH donde escribimos lo que queremos buscar y ahcemos click en Go.
+http://127.0.0.1:8000/blog
+
 
 
 
@@ -29,6 +38,6 @@ Aplicación educativa curso Python Coderhouse
 
 ##### Desarrolladores
 - Diego Ruben Vaira.
-- Claudio Bottero.
+- Claudio Bottero
 
 
